@@ -39,26 +39,19 @@ networks:
   - name: public
     type: manual
     subnets:
-    - az: z1
-      range: 10.150.0.0/24
-      gateway: 10.150.0.1
+    - azs:
+      - europe-west1-c
       cloud_properties:
-        network_name: concourse
-        subnetwork_name: concourse-public-((region))-1
-        ephemeral_external_ip: true
-        tags:
-          - concourse-public
-          - concourse-internal
-    - az: z2
-      range: 10.160.0.0/24
-      gateway: 10.160.0.1
-      cloud_properties:
-        network_name: concourse
-        subnetwork_name: concourse-public-((region))-2
-        ephemeral_external_ip: true
-        tags:
-          - concourse-public
-          - concourse-internal
+        network_name: amcginlay-pcf-network
+        subnetwork_name: amcginlay-bosh-subnet
+      dns:
+      - 169.254.169.254
+      - 8.8.8.8
+      gateway: 10.0.1.1
+      range: 10.0.1.0/24
+      reserved: []
+      static:
+      - 10.0.1.2-10.0.1.50
 
   - name: vip
     type: vip
