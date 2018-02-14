@@ -29,20 +29,17 @@ compilation:
 networks:
   - name: public
     type: manual
-    subnets:
-    - azs:
-      - europe-west1-c
-      cloud_properties:
-        network_name: amcginlay-pcf-network
-        subnetwork_name: amcginlay-bosh-subnet
-      dns:
-      - 169.254.169.254
-      - 8.8.8.8
-      gateway: 10.0.1.1
-      range: 10.0.1.0/24
-      reserved: []
-      static:
-      - 10.0.1.2-10.0.1.50
+    cloud_properties:
+      network_name: amcginlay-pcf-network
+      subnetwork_name: amcginlay-bosh-subnet
+    dns:
+    - 169.254.169.254
+    - 8.8.8.8
+    gateway: 10.0.1.1
+    range: 10.0.1.0/24
+    reserved: []
+    static:
+    - 10.0.1.2-10.0.1.50
 
   - name: vip
     type: vip
